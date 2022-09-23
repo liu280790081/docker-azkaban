@@ -1,10 +1,10 @@
 1: Build the image executor
 
-    docker build --rm -t azkaban-executor .
+    docker build --rm -t azkaban-exec:0.1.0-SNAPSHOT -t azkaban-exec:last .
 
 2: Build the image webserver
 
-    docker build --rm -t azkaban-webserver .
+    docker build --rm -t azkaban-web:0.1.0-SNAPSHOT -t azkaban-web:last .
 
 3: Start containers
 
@@ -12,7 +12,7 @@
 
 ![](https://raw.githubusercontent.com/parisgo/docker-azkaban/master/docs/images/Capture00.JPG)
 
-4: Copy and initialize database (azkaban-db-3.57.0.tar.gz / create-all-sql.sql)
+4: Copy and initialize database (azkaban-db / create.all.sql)
 
     docker cp create-all-sql.sql mysql:/
     mysql -uroot -ptest azkaban < create-all-sql.sql
