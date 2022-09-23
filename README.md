@@ -14,8 +14,8 @@
 
 4: Copy and initialize database (azkaban-db / create.all.sql)
 
-    docker cp create-all-sql.sql mysql:/
-    mysql -uroot -ptest azkaban < create-all-sql.sql
+    docker cp create.all.sql azkaban-mysql:/
+    mysql -uroot -ptest azkaban < create.all.sql
 
 5: Access the web UI :
 [https://127.0.0.1:8443](https://127.0.0.1:8443)  

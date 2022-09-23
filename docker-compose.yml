@@ -2,7 +2,7 @@ version: '2'
 services:
   mysql:
     image: mysql:5.7
-    container_name: mysql
+    container_name: azkaban-mysql
     hostname: mysql
     ports:
         - "3366:3306"
