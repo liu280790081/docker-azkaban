@@ -1,10 +1,10 @@
 1: Build the image executor
 
-    docker build --rm -t azkaban-exec:0.1.0-SNAPSHOT -t azkaban-exec:last .
+    docker build --rm -t azkaban-exec:0.1.0-SNAPSHOT -t azkaban-exec:latest .
 
 2: Build the image webserver
 
-    docker build --rm -t azkaban-web:0.1.0-SNAPSHOT -t azkaban-web:last .
+    docker build --rm -t azkaban-web:0.1.0-SNAPSHOT -t azkaban-web:latest .
 
 3: Start containers
 
