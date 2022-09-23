@@ -2,25 +2,23 @@
 
 FROM alpine
 
-MAINTAINER XYU <info@paris8.org>
+MAINTAINER Orange <280790081@qq.com>
 
 USER root
 
-ENV AZK_VERSION 3.57.0
-ENV MYSQL_JDBC_VERSION 5.1.35
+ENV AZK_VERSION 0.1.0-SNAPSHOT
 
 RUN apk add --update openjdk8-jre curl bash && rm -rf /var/cache/apk/*
 
 COPY azkaban-exec-server-$AZK_VERSION.tar.gz /azkaban-exec-server-$AZK_VERSION.tar.gz
 RUN tar xzvf azkaban-exec-server-$AZK_VERSION.tar.gz && \
-rm azkaban-exec-server-$AZK_VERSION.tar.gz
-RUN curl -sLk http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-$MYSQL_JDBC_VERSION.tar.gz| tar xz
-RUN mv mysql-connector-java-$MYSQL_JDBC_VERSION/mysql-connector-java-$MYSQL_JDBC_VERSION-bin.jar azkaban-exec-server-$AZK_VERSION/lib/
-RUN rm -rf mysql-connector-java-$MYSQL_JDBC_VERSION
+    rm azkaban-exec-server-$AZK_VERSION.tar.gz
 # Work around to run container as a daemon
 RUN sed -i "s/&//" azkaban-exec-server-$AZK_VERSION/bin/start-exec.sh
 
 ADD conf/azkaban.properties azkaban-exec-server-$AZK_VERSION/conf/azkaban.properties
+ADD conf/global.properties azkaban-exec-server-$AZK_VERSION/conf/global.properties
+ADD conf/log4j.properties azkaban-exec-server-$AZK_VERSION/conf/log4j.properties
 
 # Azkaban executor port
 EXPOSE 12321
