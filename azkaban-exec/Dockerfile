@@ -29,4 +29,4 @@ EXPOSE 12321
 WORKDIR /azkaban-exec-server-$AZK_VERSION
 
 #CMD ["bin/start-exec.sh;/bin/bash"]
-CMD bash -C 'bin/start-exec.sh';'bash'
+CMD bin/start-exec.sh

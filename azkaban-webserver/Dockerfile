@@ -26,10 +26,10 @@ ADD conf/global.properties azkaban-web-server-$AZK_VERSION/conf/global.propertie
 ADD conf/log4j.properties azkaban-web-server-$AZK_VERSION/conf/log4j.properties
 
 # Azkaban web server port
-EXPOSE 8443
+EXPOSE 8081
 
 # Define default workdir
 WORKDIR /azkaban-web-server-$AZK_VERSION
 
 #CMD ["bin/start-web.sh;/bin/bash"]
-CMD bash -C 'bin/start-web.sh';'bash'
+CMD bin/start-web.sh
